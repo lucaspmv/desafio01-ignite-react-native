@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { ItemWrapper } from './ItemWrapper';
 
 import trashIcon from '../assets/icons/trash/trash.png'
+import { handleEditTaskProps } from '../pages/Home';
 
 export interface Task {
   id: number;
@@ -16,9 +17,16 @@ interface TasksListProps {
   tasks: Task[];
   toggleTaskDone: (id: number) => void;
   removeTask: (id: number) => void;
+  editTask: (value: handleEditTaskProps) => void;
 }
 
-export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps) {
+export function TasksList(
+  { 
+    tasks, 
+    toggleTaskDone, 
+    removeTask,
+    editTask, 
+  }: TasksListProps) {
   return (
     <FlatList
       data={tasks}
